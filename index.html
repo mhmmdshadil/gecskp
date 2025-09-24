@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEC SKP - Government Engineering College Sreekrishnapuram</title>
+    <style>
+        :root {
+            --bg-color: #0a0a23;
+            --text-color: #e0e0e0;
+            --accent-color: #00d4ff;
+            --secondary-color: #ff6f61;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-color: #e6f0fa;
+                --text-color: #1a1a3d;
+                --accent-color: #0077cc;
+                --secondary-color: #ff4d4d;
+                --card-bg: rgba(255, 255, 255, 0.8);
+                --card-border: rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #0a0a23, #1b1b4e);
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1600x900/?stars,space') no-repeat center center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.85);
+            color: var(--text-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        header ul li {
+            margin-left: 2.5rem;
+        }
+
+        header ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('https://source.unsplash.com/random/1600x900/?engineering,technology') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .project-card-content {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: var(--accent-color);
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-color);
+            border-top: 1px solid var(--card-border);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            header ul {
+                margin-top: 1.5rem;
+            }
+
+            header ul li {
+                margin: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .project-card img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">GEC SKP</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Government Engineering College Sreekrishnapuram</h1>
+            <p>Inspiring innovation, shaping the future of engineering excellence.</p>
+        </div>
+    </section>
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About the College</h2>
+            <div class="about-content">
+                <p>Government Engineering College Sreekrishnapuram (GEC SKP), established in 1999 in Sreekrishnapuram, Palakkad, Kerala, is a leading institution dedicated to technical education. Affiliated with APJ Abdul Kalam Technological University and approved by AICTE, we offer cutting-edge programs in engineering disciplines.</p>
+                <p>Our vision is to empower students with knowledge, foster innovation, and drive research to address global challenges.</p>
+            </div>
+        </section>
+        <section id="projects" class="section">
+            <h2>Our Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/random/400x200/?robotics" alt="Robotics Project">
+                    <div class="project-card-content">
+                        <h3>Autonomous Robotics System</h3>
+                        <p>Building intelligent robots for automation in industrial and healthcare sectors.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/random/400x200/?renewable-energy" alt="Renewable Energy Project">
+                    <div class="project-card-content">
+                        <h3>Sustainable Energy Solutions</h3>
+                        <p>Advancing renewable energy with innovative solar and wind technologies.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/random/400x200/?ai" alt="AI Project">
+                    <div class="project-card-content">
+                        <h3>AI-Driven Analytics</h3>
+                        <p>Developing machine learning models for predictive analytics in real-world applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <div class="about-content">
+                <p>Email: info@gecskp.ac.in</p>
+                <p>Phone: +91-466-2260350</p>
+                <p>Address: Mannampatta P.O, Sreekrishnapuram, Palakkad, Kerala - 679518</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Government Engineering College Sreekrishnapuram. All rights reserved.</p>
+    </footer>
+</body>
+</html>
